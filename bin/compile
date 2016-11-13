@@ -4,15 +4,14 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-VENDOR_DIR=vendor/heroku-polymer-buildpack
-VENDOR_PATH_DIR=$BUILD_DIR/$VENDOR_DIR/node_modules/.bin
+VENDOR_DIR=vendor/heroku-polymer-buildpack/node_modules/.bin
 
 echo "-----> heroku-polymer-buildpack: Copying polymer to vendor..."
 mkdir -p $BUILD_DIR/$VENDOR_DIR
-cp -r $DIR/../node_modules $VENDOR_PATH_DIR
+cp -r $DIR/../node_modules $BUILD_DIR/$VENDOR_DIR
 
 echo "-----> heroku-polymer-buildpack: Adding polymer to PATH..."
 mkdir -p $BUILD_DIR/.profile.d
 cat<<EOF > $BUILD_DIR/.profile.d/heroku-polymer-buildpack.sh
-PATH="\$PATH:$VENDOR_PATH_DIR"
+PATH="\$PATH:\$HOME/$VENDOR_DIR"
 EOF
