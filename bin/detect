@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "heroku-polymer-buildpack"
+exit 0

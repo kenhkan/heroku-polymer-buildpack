@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "-----> heroku-polymer-buildpack: Symlinking polymer..."
+mkdir -p /app/node_modules/.bin
+ln -s "$DIR/node_modules/.bin/polymer" /app/node_modules/.bin/polymer
