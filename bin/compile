@@ -9,7 +9,7 @@ VENDOR_PATH_DIR=$BUILD_DIR/$VENDOR_DIR/node_modules
 
 echo "-----> heroku-polymer-buildpack: Copying polymer to vendor..."
 mkdir -p $BUILD_DIR/$VENDOR_DIR
-cp -r $DIR/node_modules $VENDOR_PATH_DIR
+cp -r $DIR/../node_modules $VENDOR_PATH_DIR
 
 echo "-----> heroku-polymer-buildpack: Adding polymer to PATH..."
 mkdir -p $BUILD_DIR/.profile.d
